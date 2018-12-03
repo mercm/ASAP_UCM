@@ -2,24 +2,72 @@
 % https://github.com/elauksap/focus-beamertheme
 
 \documentclass{beamer}
+\usepackage[utf8]{inputenc} % Para permitir acentos y ñ
 \usetheme{focus}
 
-\title{A brief introduction to Python}
-\author{Paula Mu\~noz Lago \\ Esther Ruiz-Capillas Mu\~noz}
+\title{Breve introducción a Python}
+\author{Paula Muñoz Lago \\ Esther Ruiz-Capillas Muñoz}
 \titlegraphic{\includegraphics[scale=0.08]{python.png}}
-\institute{Facultad de Informatica, UCM}
+\institute{Facultad de Informática, UCM}
 
 \begin{document}
     \begin{frame}
         \maketitle
     \end{frame}
-    
-    \section{Why python}
-    \begin{frame}{Simple frame}
-        This is a simple frame.
+
+    \begin{frame} {Introducción a la programación}
+	    \textbf{Programar: } Dar una serie de instrucciones a nuestro ordenador para que las cumpla con éxito y así obtener el resultado deseado.
+	    
+	    Los pasos que hay que seguir son los siguientes: 
+	    \begin{enumerate}
+	    	\item Escribir el código
+	    	\item Compilarlo
+	    	\item Ejecutarlo
+	    \end{enumerate}
+	\end{frame}
+
+	\begin{frame} {Escribir el código}
+		Dependiendo del sistema operativo que uses, y la cantidad de código que vayas a escribir, te recomiendamos algunos programas...
+		
+		\begin{itemize}
+			\item \textbf{Notepad++ o SublimeText:} Son editores de texto que no disponen de compilador integrado, por lo que todo lo que programemos en ellos habrá que compilarlo y ejecutarlo desde la terminal de comandos. El primero se encuentra en Windows y el segundo en Linux.
+			\item \textbf{Visual Studio Code: } También es un editor de texto, en el cual podremos escribir nuestro código e instalar a continuación extensiones (plug-ins) para poder ejecutar código. Se encuentra en ambos sistemas operativos.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Qué significa "Compilar"}
+	\setlength{\parskip}{8mm}
+	El proceso de compilación se encarga de comprobar que no hay fallos en el código escrito por el/la programador(a), y convertirlo a lenguaje de máquina (no legible por los programadores).
+	
+	Si la compilación da algún error, el proceso terminará y nos indicará la linea de código donde está el error.
+	
+	Para comprobar que la compilación ha terminado con éxito bastará con ver que se ha generado correctamente el archivo .exe (ejecutable)
+	\end{frame}
+
+	\begin{frame}{Ejemplo de compilación y ejecución}
+	\begin{enumerate}
+		\item Creamos Test.py y escribimos: 
+		\begin{gather}
+		\textit{print("ASAP mola!")}
+		\end{gather}
+		\item Si trabajamos en Visual Studio Code y hemos instalado la extensión Code Runner bastará con darle al botón de "play" que se encuentra en la esquina superior derecha, si trabajamos desde un editor sin compilador, o no tenemos dicha extensión, bastará con que escribamos en la terminal el siguiente comando:
+		\begin{gather}
+			\textit{python -u Test.py}
+		\end{gather}
+	
+		De esta forma, veremos que en la pantalla aparece "ASAP mola!"
+	\end{enumerate}
+	\end{frame}
+    \begin{frame}{Razones por las que aprender Python}
+    	\setlength{\parskip}{8mm} %separación entre parrafos
+        Lenguaje "sencillo", ideal para iniciarse en la programación.
+        
+        Ligero, de compilación rápida (A continuación revisaremos éste concepto).
+        
+        Además, se utiliza mucho en campos como el \textbf{procesamiento del lenguaje natural}\footnote{\url{https://es.wikipedia.org/wiki/Procesamiento_de_lenguajes_naturales}}
     \end{frame}
 
-    \begin{frame}[plain]{Plain frame}
+    \begin{frame}
         This is a frame with plain style and it is numbered.
     \end{frame}
     
