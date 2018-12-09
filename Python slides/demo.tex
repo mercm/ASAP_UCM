@@ -2,10 +2,17 @@
 % https://github.com/elauksap/focus-beamertheme
 
 \documentclass{beamer}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
 \usepackage[utf8]{inputenc} % Para permitir acentos y ñ
 \usetheme{focus}
+\newtcolorbox[auto counter, number within=section]{Programexample}[2][]
+{colback=green!5!white,colframe=magenta!75!black,
+	fonttitle=\bfseries, title=Ejemplo: #2,#1}
 
-\title{Breve introducción a Python}
+\title{Introducción a Python}
 \author{Paula Muñoz Lago \\ Esther Ruiz-Capillas Muñoz}
 \titlegraphic{\includegraphics[scale=0.08]{python.png}}
 \institute{Facultad de Informática, UCM}
@@ -48,96 +55,110 @@
 	\begin{enumerate}
 		\item Creamos Test.py y escribimos: 
 		\begin{gather}
-		\textit{print("ASAP mola!")}
+		\color{magenta}\textit{print("ASAP mola!")}
 		\end{gather}
 		\item Si trabajamos en Visual Studio Code y hemos instalado la extensión Code Runner bastará con darle al botón de "play" que se encuentra en la esquina superior derecha, si trabajamos desde un editor sin compilador, o no tenemos dicha extensión, bastará con que escribamos en la terminal el siguiente comando:
 		\begin{gather}
-			\textit{python -u Test.py}
+			\color{magenta}\textit{python -u Test.py}
 		\end{gather}
 	
 		De esta forma, veremos que en la pantalla aparece "ASAP mola!"
 	\end{enumerate}
 	\end{frame}
+\section{Python}
     \begin{frame}{Razones por las que aprender Python}
     	\setlength{\parskip}{8mm} %separación entre parrafos
         Lenguaje "sencillo", ideal para iniciarse en la programación.
         
-        Ligero, de compilación rápida (A continuación revisaremos éste concepto).
+        Ligero, de compilación rápida.
         
-        Además, se utiliza mucho en campos como el \textbf{procesamiento del lenguaje natural}\footnote{\url{https://es.wikipedia.org/wiki/Procesamiento_de_lenguajes_naturales}}
+        Además, es uno de los lenguajes pricipales con los que se trabaja en el campo del \textbf{procesamiento del lenguaje natural}\footnote{\url{https://es.wikipedia.org/wiki/Procesamiento_de_lenguajes_naturales}}
+    \end{frame}
+    \begin{frame}{Tipos de Datos}
+    	En programación, siempre tenemos que guardar datos en algún punto de nuestro programa. Para ello, debemos conocer bien los diferentes tipos de datos con los que nos vamos a encontrar. En esta introducción veremos los tipos más comunes:
+		\vspace{1cm}
+		
+	 \centering\hyperlink{datos:numericos}{\textbf{Numericos}}
+		\hspace{3cm} \hyperlink{datos:strings}{\textbf{Strings}}
+		\hspace{3cm} \hyperlink{datos:listas}{\textbf{Listas}}
+    \end{frame}
+    
+    \begin{frame} {Tipos de Datos: Numéricos}
+    \label{datos:numericos}
+		\begin{block}{Datos numéricos}
+			int
+			
+			floating point
+		\end{block}
+		\begin{Programexample}{Prueba con datos de tipo int}
+			\centering
+			\textit{x = 2}
+			
+			\textit{y = 3}
+			
+			print(x + y)
+		\end{Programexample}
+	\begin{Programexample}{Prueba con datos de tipo float}
+		\centering\textit{x = 2.56}
+		
+		 print(type(x))
+	\end{Programexample}
+		
+    \end{frame}
+    
+    \begin{frame} {Tipos de Datos: Strings}
+    \label{datos:strings}
+    Un string es una cadena de caracteres, sobre las cuales pordemos operar de la siguiente forma:
+    \begin{Programexample} {Operaciones sobre una cadena}
+    	frase = \textcolor{orange}{"ASAP mola"}
+    	
+    	print(frase) \hspace{3cm} \textcolor{green}{"ASAP mola"}
+    	
+    	print(frase[3])\hspace{2.7cm} \textcolor{green}{"P"}
+	\end{Programexample}
+
+	Entenderemos las frases como una lista de caracteres, por eso en el segundo ejemplo, intentamos acceder a la posición 3 de la cadena  \textcolor{orange}{"ASAP mola"}.
+	\textbf{En programación las listas empiezan en la posición 0}.
+    \end{frame}
+    \begin{frame}{Tipos de datos: Booleanos}
+    %añadir más info
+    Estos tipos de datos únicamente son capaces de indicar si una variable es verdadera o falsa, se utilizarán más adelante como condición de control.
+    
+    \begin{Programexample}
+    	\centering ASAPExiste = true
+    \end{Programexample}
+	\end{frame}
+    \begin{frame}{Tipos de datos: Listas}
+    \label{datos:listas}
+    Al igual que en el último ejemplo, podemos crear listas de números, strings, o distintos tipos.
+    
+    \begin{Programexample}{Trabajo con listas}
+    	info\_ASAP = \textcolor{orange}{["ASAP", "UCM", "Filología", 2018]}
+    	\newline\newline
+    	print("Información sobre la asociación",  info\_ASAP[0])\newline
+    	print("Pertenece a la facultad: ", info\_ASAP[2], info\_ASAP[1]) \newline
+    	print("Año de creacción: ", info\_ASAP[3])\newline
+    	print("Numero de datos que disponemos de ", info\_ASAP[0], ":", len(info\_ASAP))
+    \end{Programexample}
     \end{frame}
 
-    \begin{frame}
-        This is a frame with plain style and it is numbered.
+    \begin{frame}{Estructuras de control}
+       Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones Booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
+       %ver porqué no funciona el espaciado horizontal
+       %explicar and or not antes de esto...
+       \begin{Programexample} {Ejemplo del uso de if}
+       	socios = 300 \newline
+       	if socios > 500:\newline
+       	\hspace{3cm}print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
+       	elif socios > 250 \textcolor{blue}{and} socios <= 500:\newline
+       	\hspace{2cm}print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
+       	else:\newline
+       	\hspace{2cm}print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
+       \end{Programexample}
     \end{frame}
     
-    \begin{frame}[t]
-        This frame has an empty title and is aligned to top.
-    \end{frame}
-    
-    \begin{frame}[noframenumbering]{No frame numbering}
-        This frame is not numbered and is citing reference \cite{knuth74}.
-    \end{frame}
-    
-    \begin{frame}{Typesetting and Math}
-        The packages \texttt{inputenc} and \texttt{FiraSans}\footnote{\url{https://fonts.google.com/specimen/Fira+Sans}}\textsuperscript{,}\footnote{\url{http://mozilla.github.io/Fira/}} are used to properly set the main fonts.
-        \vfill
-        This theme provides styling commands to typeset \emph{emphasized}, \alert{alerted}, \textbf{bold}, \textcolor{example}{example text}, \dots
-        \vfill
-        \texttt{FiraSans} also provides support for mathematical symbols:
-        \begin{equation*}
-            e^{i\pi} + 1 = 0.
-        \end{equation*}
-    \end{frame}
-
-    \section{Section 2}
-    \begin{frame}{Blocks}
-        \begin{block}{Block}
-            Text.
-        \end{block}
-        \pause
-        \begin{alertblock}{Alert block}
-            Alert \alert{text}.
-        \end{alertblock}
-        \pause
-        \begin{exampleblock}{Example block}
-            Example \textcolor{example}{text}.
-        \end{exampleblock}
-    \end{frame}
-    
-    \begin{frame}{Lists}
-        \begin{columns}[t, onlytextwidth]
-            \column{0.33\textwidth}
-                Items:
-                \begin{itemize}
-                    \item Item 1
-                    \begin{itemize}
-                        \item Subitem 1.1
-                        \item Subitem 1.2
-                    \end{itemize}
-                    \item Item 2
-                    \item Item 3
-                \end{itemize}
-            
-            \column{0.33\textwidth}
-                Enumerations:
-                \begin{enumerate}
-                    \item First
-                    \item Second
-                    \begin{enumerate}
-                        \item Sub-first
-                        \item Sub-second
-                    \end{enumerate}
-                    \item Third
-                \end{enumerate}
-            
-            \column{0.33\textwidth}
-                Descriptions:
-                \begin{description}
-                    \item[First] Yes.
-                    \item[Second] No.
-                \end{description}
-        \end{columns}
+    \begin{frame}{sdfgaweg}
+       
     \end{frame}
 
     \begin{frame}[focus]
