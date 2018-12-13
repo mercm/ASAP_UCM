@@ -79,8 +79,9 @@
 		\vspace{1cm}
 		
 	 \centering\hyperlink{datos:numericos}{\textbf{Numericos}}
-		\hspace{3cm} \hyperlink{datos:strings}{\textbf{Strings}}
-		\hspace{3cm} \hyperlink{datos:listas}{\textbf{Listas}}
+		\hspace{1cm} \hyperlink{datos:strings}{\textbf{Strings}}
+		\hspace{1cm} \hyperlink{datos:bool}{\textbf{Bool}}
+		\hspace{1cm} \hyperlink{datos:listas}{\textbf{Listas}}
     \end{frame}
     
     \begin{frame} {Tipos de Datos: Numéricos}
@@ -122,11 +123,14 @@
     \end{frame}
     \begin{frame}{Tipos de datos: Booleanos}
     %añadir más info
+    \label{datos:bool}
     Estos tipos de datos únicamente son capaces de indicar si una variable es verdadera o falsa, se utilizarán más adelante como condición de control.
     
     \begin{Programexample}
     	\centering ASAPExiste = true
     \end{Programexample}
+
+	Necesario conocer la \hyperlink{moorelaw}{Ley de Moore} para trabajar con Booleanos correctamente.
 	\end{frame}
     \begin{frame}{Tipos de datos: Listas}
     \label{datos:listas}
@@ -142,40 +146,68 @@
     \end{Programexample}
     \end{frame}
 
-    \begin{frame}{Estructuras de control}
-       Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones Booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
-       %ver porqué no funciona el espaciado horizontal
-       %explicar and or not antes de esto...
-       \begin{Programexample} {Ejemplo del uso de if}
-       	socios = 300 \newline
-       	if socios > 500:\newline
-       	\hspace{3cm}print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
-       	elif socios > 250 \textcolor{blue}{and} socios <= 500:\newline
-       	\hspace{2cm}print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
-       	else:\newline
-       	\hspace{2cm}print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
-       \end{Programexample}
-    \end{frame}
-    
-    \begin{frame}{sdfgaweg}
+    \section{Estructuras}
+    \begin{frame}{Leyes de Moore}
+    \label{moorelaw}
+       Antes de comenzar con nuestros primeros programas, debemos conocer esta ley:
        
     \end{frame}
+    \begin{frame}{Estructuras de control: If}
+	Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones Booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
+	%ver porqué no funciona el espaciado horizontal
+	%explicar and or not antes de esto...
+	\begin{Programexample} {Ejemplo del uso de if}
+		socios = 300 \newline
+		\textcolor{blue}{if} socios > 500:\newline
+		\hspace{3cm} print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
+		\textcolor{blue}{elif} socios > 250 \textcolor{blue}{and} socios <= 500:\newline
+		\hspace{2cm} print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
+		\textcolor{blue}{else}:\newline
+		\hspace{2cm} print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
+	\end{Programexample}
+	\end{frame}
+	\begin{frame}{Bucles: While}
+	Para ejecutar un código varias veces, y hacerlo de una forma limpia y ordenada, siempre vamos a tener que hacer uso de algún tipo de bucle.
+	\begin{Programexample}{Ejemplo erroneo}
+		print(\textcolor{orange}{"ASAP mola"}) \newline
+		print(\textcolor{orange}{"ASAP mola"})
+	\end{Programexample}
+	\begin{Programexample}{Ejemplo uso de bucle while}
+		veces\_que\_lo\_he\_dicho = 0 \newline
+		veces\_que\_quiero\_decirlo = 2 \newline
+		\textcolor{blue}{while} veces\_que\_lo\_he\_dicho < veces\_que\_quiero\_decirlo:
+		\hspace{2cm} print(\textcolor{orange}{"ASAP mola"}) \newline
+		\hspace{2cm} veces\_que\_lo\_he\_dicho++
+		
+	\end{Programexample}
+\end{frame}
+\begin{frame}{Bucles: For}
+Otro tipo de bucles comunmente utilizados en programación son los bucles for, en este caso encontramos diferentes sintaxis que pueden cumplir la misma funcionalidad.
+\begin{Programexample}{Ejemplo uso de bucle for}
+	veces\_que\_quiero\_decirlo = 2 \newline
+	\textcolor{blue}{for} veces\_que\_lo\_he\_dicho \textcolor{blue}{in range}(veces\_que\_quiero\_decirlo): \newline
+	\hspace{2cm} print(\textcolor{orange}{"ASAP mola"})
+\end{Programexample}
+\begin{Programexample}{Ejemplo uso de bucle for con listas}
+	frutas = [\textcolor{orange}{"manzana", "platano", "naranja"}] \newline
+	\textcolor{blue}{for} fruta \textcolor{blue}{in} frutas: \newline
+	\textcolor{blue}{if} fruta \textcolor{blue}{is} "platano": \newline
+	\hspace{2cm} print(\textcolor{orange}{"Gracias!"})
+\end{Programexample}
+\end{frame}
+\section{Ahorcado}
+\begin{frame}{Enunciado}
+content...
+\end{frame}
 
     \begin{frame}[focus]
-        Thanks for using \textbf{Focus}!
+        Muchas gracias por la atención! \newline
+        Esperamos que esta charla haya despertado vuestro interés por Python y que sigais trabajando en ello!!
     \end{frame}
-    
-    \appendix
-    \begin{frame}{References}
-        \nocite{*}
-        \bibliography{demo_bibliography}
-        \bibliographystyle{plain}
-    \end{frame}
-    
-    \begin{frame}{Backup frame}
-        \usebeamercolor[fg]{normal text}
-        This is a backup frame, useful to include additional material for questions from the audience.
-        \vfill
-        The package \texttt{appendixnumberbeamer} is used not to number appendix frames.
-    \end{frame}
+
+	\begin{frame}[focus]
+	Paula Muñoz Lago pmunoz06@ucm.es \newline
+	Esther Ruiz-Capillas Muñoz 
+	\end{frame}
+
 \end{document}
