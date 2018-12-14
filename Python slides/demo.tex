@@ -18,195 +18,221 @@
 \institute{Facultad de Informática, UCM}
 
 \begin{document}
-	\begin{frame}
-	\maketitle
-\end{frame}
+    \begin{frame}
+        \maketitle
+    \end{frame}
 
-\begin{frame} {Introducción a la programación}
-\textbf{Programar:} Dar una serie de instrucciones a nuestro ordenador para que las cumpla con éxito y así obtener el resultado deseado.
+    \begin{frame} {Introducción a la programación}
+	    \textbf{Programar:} Dar una serie de instrucciones a nuestro ordenador para que las cumpla con éxito y así obtener el resultado deseado.
+	    
+	    Los pasos que hay que seguir son los siguientes: 
+	    \begin{enumerate}
+	    	\item Escribir el código
+	    	\item Compilarlo
+	    	\item Ejecutarlo
+	    \end{enumerate}
+	\end{frame}
 
-Los pasos que hay que seguir son los siguientes: 
-\begin{enumerate}
-	\item Escribir el código
-	\item Compilarlo
-	\item Ejecutarlo
-\end{enumerate}
-\end{frame}
+	\begin{frame} {Escribir el código}
+		Dependiendo del sistema operativo que uses, y la cantidad de código que vayas a escribir, te recomiendamos algunos programas...
+		
+		\begin{itemize}
+			\item \textbf{Notepad++ o SublimeText:} Son editores de texto que no disponen de compilador integrado, por lo que todo lo que programemos en ellos habrá que compilarlo y ejecutarlo desde la terminal de comandos. El primero se encuentra en Windows y el segundo en Linux.
+			\item \textbf{Visual Studio Code:} También es un editor de texto, en el cual podremos escribir nuestro código e instalar a continuación extensiones (plug-ins) para poder ejecutar código. Se encuentra en ambos sistemas operativos.
+		\end{itemize}
+	\end{frame}
 
-\begin{frame} {Escribir el código}
-Dependiendo del sistema operativo que uses, y la cantidad de código que vayas a escribir, te recomiendamos algunos programas...
+	\begin{frame}{Qué significa "Compilar"}
+    	\setlength{\parskip}{8mm}
+    	El proceso de compilación se encarga de comprobar que no hay fallos en el código escrito por el/la programador(a), y convertirlo a lenguaje de máquina (no legible por los programadores).
+    	
+    	Si la compilación da algún error, el proceso terminará y nos indicará la linea de código donde está el error.
+    	
+    	Para comprobar que la compilación ha terminado con éxito bastará con ver que se ha generado correctamente el archivo .exe (ejecutable)
+	\end{frame}
 
-\begin{itemize}
-\item \textbf{Notepad++ o SublimeText:} Son editores de texto que no disponen de compilador integrado, por lo que todo lo que programemos en ellos habrá que compilarlo y ejecutarlo desde la terminal de comandos. El primero se encuentra en Windows y el segundo en Linux.
-\item \textbf{Visual Studio Code:} También es un editor de texto, en el cual podremos escribir nuestro código e instalar a continuación extensiones (plug-ins) para poder ejecutar código. Se encuentra en ambos sistemas operativos.
-\end{itemize}
-\end{frame}
+	\begin{frame}{Ejemplo de compilación y ejecución}
+    	\begin{enumerate}
+    		\item Creamos Test.py y escribimos: 
+    		\begin{gather}
+    		    \color{magenta}\textit{print("ASAP mola!")}
+    		\end{gather}
+    		\item Si trabajamos en Visual Studio Code y hemos instalado la extensión Code Runner bastará con darle al botón de "play" que se encuentra en la esquina superior derecha, si trabajamos desde un editor sin compilador, o no tenemos dicha extensión, bastará con que escribamos en la terminal el siguiente comando:
+    		\begin{gather}
+    			\color{magenta}\textit{python -u Test.py}
+    		\end{gather}
+    	
+    		De esta forma, veremos que en la pantalla aparece "ASAP mola!"
+    	\end{enumerate}
+	\end{frame}
+	
+    \section{Python}
 
-\begin{frame}{Qué significa "Compilar"}
-\setlength{\parskip}{8mm}
-El proceso de compilación se encarga de comprobar que no hay fallos en el código escrito por el/la programador(a), y convertirlo a lenguaje de máquina (no legible por los programadores).
+    \begin{frame}{Razones por las que aprender Python}
+    	\setlength{\parskip}{8mm} %separación entre parrafos
+        Lenguaje "sencillo", ideal para iniciarse en la programación.
+        
+        Ligero, de compilación rápida.
+        
+        Además, es uno de los lenguajes pricipales con los que se trabaja en el campo del \textbf{procesamiento del lenguaje natural}\footnote{\url{https://es.wikipedia.org/wiki/Procesamiento_de_lenguajes_naturales}}
+    \end{frame}
+    
+    \begin{frame}{Tipos de Datos}
+        %Deberíamos añadir los booleanos y, probablemente, ponerlos delante de los string para que pueda ser más sencillo referencias a su información desde el apartado de listas
+    	En programación, siempre tenemos que guardar datos en algún punto de nuestro programa. Para ello, debemos conocer bien los diferentes tipos de datos con los que nos podemos encontrar. En esta introducción veremos los tipos más comunes:
+		\vspace{1cm}
+		
+	 \centering\hyperlink{datos:numericos}{\textbf{Numericos}}
+		\hspace{3cm} \hyperlink{datos:strings}{\textbf{Strings}}
+		\hspace{3cm} \hyperlink{datos:listas}{\textbf{Listas}}
+    \end{frame}
+    
+    \begin{frame} {Tipos de Datos: Numéricos}
+    \label{datos:numericos}
+		\begin{block}{Datos numéricos}
+			int
+			floating point
+		\end{block}
+		\begin{Programexample}{Prueba con datos de tipo int}
+			\centering
+			\textit{x = 2}
+			\textit{y = 3}
+			print(x + y)
+			\textcolor{green}{"5"}
+		\end{Programexample}
+    	\begin{Programexample}{Prueba con datos de tipo float}
+    		\centering\textit{x = 2.56}
+		    print(type(x))
+		     \textcolor{green}{"<class 'float'>"}
+    	\end{Programexample}
+    \end{frame}
+    
+    \begin{frame} {Tipos de Datos: Strings}
+        \label{datos:strings}
+        Un string es una cadena de caracteres, sobre los cuales podemos operar de la siguiente forma:
+        \begin{Programexample} {Operaciones sobre una cadena}
+        	frase = \textcolor{orange}{"ASAP mola"}
+        	print(frase) \hspace{3cm} \textcolor{green}{"ASAP mola"}
+        	print(frase[3])\hspace{2.7cm} \textcolor{green}{"P"}
+	    \end{Programexample}
+    	Entenderemos las frases como una lista de caracteres, por eso en el segundo ejemplo, intentamos acceder a la posición 3 de la cadena  \textcolor{orange}{"ASAP mola"}.
+    	\textbf{En programación las listas empiezan en la posición 0}.
+    \end{frame}
+        
+    \begin{frame}{Tipos de datos: Booleanos}
+        %añadir más info
+        Este tipos de datos únicamente puede tomar dos valores: verdadero o falso. En general, todas las variables pueden considerarse como booleanas. Aquellos elementos nulos o vacíos adoptarán el valor de falso mientras que todos los demás serán verdaderos. Además, el número 1 actuará como verdadero y el 0 como falso.
+        Este tipo de datos se utilizará más adelante como condición de control.
+        \begin{Programexample}
+        	\centering ASAPExiste = true
+        \end{Programexample}
+	\end{frame}
+	
+    \begin{frame}{Tipos de datos: Listas}
+        \label{datos:listas}
+        Como hemos dicho antes, una lista es una cadena de cualquier tipo de datos. Pueden ser de un mismo tipo (números, strings, etc) o de varios.
+        \begin{Programexample}{Trabajo con listas}
+        	info\_ASAP = \textcolor{orange}{["ASAP", "UCM", "Filología", 2018]}
+        	\newline\newline
+        	print("Información sobre la asociación",  info\_ASAP[0])\newline
+        	print("Pertenece a la facultad: ", info\_ASAP[2], info\_ASAP[1]) \newline
+        	print("Año de creacción: ", info\_ASAP[3])\newline
+        	print("Numero de datos que disponemos de ", info\_ASAP[0], ": ", len(info\_ASAP))
+        \end{Programexample}
+    \end{frame}
+    
+    \begin{frame}{Operaciones lógicas}
+        Las operaciones lógicas son aquellas que nos permiten relacionar ciertos datos de una manera determinada y nos proporciona un resultado. Más adelante veremos que esto tendrá utilidad en las condiciones.\\
+        Tanto estos datos como el resultado únicamente podrán ser de tipo booleano.\\
+        Las operaciones lógicas más usadas son \textbf{AND} y \textbf{OR}.
+        \begin{table}[]
+            \begin{tabular}{|c|c|l|l|c|l|l|}
+            \cline{1-3} \cline{5-7}
+            \textbf{AND}   & \textbf{True}  & \textbf{False} &  & \textbf{OR}    & \textbf{True} & \textbf{False} \\ \cline{1-3} \cline{5-7} 
+            \textbf{True}  & True  & False &  & \textbf{True}  & True & True  \\ \cline{1-3} \cline{5-7} 
+            \textbf{False} & False & False &  & \textbf{False} & True & False \\ \cline{1-3} \cline{5-7} 
+            \end{tabular}
+        \end{table}
+    \end{frame}
+    
+    \begin{frame}{Comparaciones}
+        Al igual que las operaciones lógicas, las comparaciones también proporcionan un resultado booleano aunque, a diferencia de las operaciones lógicas, no es necesario que los datos tratados sean de tipo booleanos. También se les encontrará la utilidad más adelante, para las condiciones.\\
+        Para comprobar si dos datos son iguales se utilizará == y para comprobar si son diferentes !=.
+        \begin{Programexample} {Comparaciones}
+           	\centering
+           	\textit{x = 5}\\
+           	\textit{y = 3}\\
+           	print(True != (y == x))\\
+           	\textcolor{green}{"True"}
+       \end{Programexample}
+    \end{frame}
+    
+    \section{Estructuras}
+    
+    \begin{frame}{Leyes de Moore}
+        \label{moorelaw}
+       Antes de comenzar con nuestros primeros programas, debemos conocer esta ley:
+    \end{frame}
+    
+    \begin{frame}{Estructuras de control: If}
+    	Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones Booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
+    	%ver porqué no funciona el espaciado horizontal
+    	%explicar and or not antes de esto...
+    	\begin{Programexample} {Ejemplo del uso de if}
+    		socios = 300 \newline
+    		\textcolor{blue}{if} socios > 500:\newline
+    		\hspace{3cm} print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
+    		\textcolor{blue}{elif} socios > 250 \textcolor{blue}{and} socios <= 500:\newline
+    		\hspace{2cm} print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
+    		\textcolor{blue}{else}:\newline
+    		\hspace{2cm} print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
+    	\end{Programexample}
+	\end{frame}
+	
+	\begin{frame}{Bucles: While}
+    	Para ejecutar un código varias veces, y hacerlo de una forma limpia y ordenada, siempre vamos a tener que hacer uso de algún tipo de bucle.
+    	\begin{Programexample}{Ejemplo erroneo}
+    		print(\textcolor{orange}{"ASAP mola"}) \newline
+    		print(\textcolor{orange}{"ASAP mola"})
+    	\end{Programexample}
+    	\begin{Programexample}{Ejemplo uso de bucle while}
+    		veces\_que\_lo\_he\_dicho = 0 \newline
+    		veces\_que\_quiero\_decirlo = 2 \newline
+    		\textcolor{blue}{while} veces\_que\_lo\_he\_dicho < veces\_que\_quiero\_decirlo:
+    		\hspace{2cm} print(\textcolor{orange}{"ASAP mola"}) \newline
+    		\hspace{2cm} veces\_que\_lo\_he\_dicho++
+    	\end{Programexample}
+    \end{frame}
+    
+    \begin{frame}{Bucles: For}
+        Otro tipo de bucles comunmente utilizados en programación son los bucles for, en este caso encontramos diferentes sintaxis que pueden cumplir la misma funcionalidad.
+        \begin{Programexample}{Ejemplo uso de bucle for}
+        	veces\_que\_quiero\_decirlo = 2 \newline
+        	\textcolor{blue}{for} veces\_que\_lo\_he\_dicho \textcolor{blue}{in range}(veces\_que\_quiero\_decirlo): \newline
+        	\hspace{2cm} print(\textcolor{orange}{"ASAP mola"})
+        \end{Programexample}
+        \begin{Programexample}{Ejemplo uso de bucle for con listas}
+        	frutas = [\textcolor{orange}{"manzana", "platano", "naranja"}] \newline
+        	\textcolor{blue}{for} fruta \textcolor{blue}{in} frutas: \newline
+        	\textcolor{blue}{if} fruta \textcolor{blue}{is} "platano": \newline
+        	\hspace{2cm} print(\textcolor{orange}{"Gracias!"})
+        \end{Programexample}
+    \end{frame}
+        
+    \section{Ahorcado}
+        
+    \begin{frame}{Enunciado}
+        content...
+    \end{frame}
 
-Si la compilación da algún error, el proceso terminará y nos indicará la linea de código donde está el error.
+    \begin{frame}[focus]
+        Muchas gracias por la atención! \newline
+        Esperamos que esta charla haya despertado vuestro interés por Python y que sigais trabajando en ello!!
+    \end{frame}
 
-Para comprobar que la compilación ha terminado con éxito bastará con ver que se ha generado correctamente el archivo .exe (ejecutable)
-\end{frame}
+	\begin{frame}[focus]
+    	Paula Muñoz Lago pmunoz06@ucm.es \newline
+    	Esther Ruiz-Capillas Muñoz mruizcap@ucm.es
+	\end{frame}
 
-\begin{frame}{Ejemplo de compilación y ejecución}
-\begin{enumerate}
-\item Creamos Test.py y escribimos: 
-\begin{gather}
-\color{magenta}\textit{print("ASAP mola!")}
-\end{gather}
-\item Si trabajamos en Visual Studio Code y hemos instalado la extensión Code Runner bastará con darle al botón de "play" que se encuentra en la esquina superior derecha, si trabajamos desde un editor sin compilador, o no tenemos dicha extensión, bastará con que escribamos en la terminal el siguiente comando:
-\begin{gather}
-\color{magenta}\textit{python -u Test.py}
-\end{gather}
-
-De esta forma, veremos que en la pantalla aparece "ASAP mola!"
-\end{enumerate}
-\end{frame}
-\section{Python}
-\begin{frame}{Razones por las que aprender Python}
-\setlength{\parskip}{8mm} %separación entre parrafos
-Lenguaje "sencillo", ideal para iniciarse en la programación.
-
-Ligero, de compilación rápida.
-
-Además, es uno de los lenguajes pricipales con los que se trabaja en el campo del \textbf{procesamiento del lenguaje natural}\footnote{\url{https://es.wikipedia.org/wiki/Procesamiento_de_lenguajes_naturales}}
-\end{frame}
-\begin{frame}{Tipos de Datos}
-%Deberíamos añadir los booleanos y, probablemente, ponerlos delante de los string para que pueda ser más sencillo referencias a su información desde el apartado de listas
-En programación, siempre tenemos que guardar datos en algún punto de nuestro programa. Para ello, debemos conocer bien los diferentes tipos de datos con los que nos podemos encontrar. En esta introducción veremos los tipos más comunes:
-\vspace{1cm}
-
-\centering\hyperlink{datos:numericos}{\textbf{Numericos}}
-\hspace{3cm} \hyperlink{datos:strings}{\textbf{Strings}}
-\hspace{3cm} \hyperlink{datos:listas}{\textbf{Listas}}
-\end{frame}
-
-\begin{frame} {Tipos de Datos: Numéricos}
-\label{datos:numericos}
-\begin{block}{Datos numéricos}
-int
-
-floating point
-\end{block}
-\begin{Programexample}{Prueba con datos de tipo int}
-\centering
-\textit{x = 2}
-
-\textit{y = 3}
-
-print(x + y)
-
-\textcolor{green}{"5"}
-\end{Programexample}
-\begin{Programexample}{Prueba con datos de tipo float}
-\centering\textit{x = 2.56}
-
-print(type(x))
-
-\textcolor{green}{"<class 'float'>"}
-\end{Programexample}
-
-\end{frame}
-
-\begin{frame} {Tipos de Datos: Strings}
-\label{datos:strings}
-Un string es una cadena de caracteres, sobre los cuales podemos operar de la siguiente forma:
-\begin{Programexample} {Operaciones sobre una cadena}
-frase = \textcolor{orange}{"ASAP mola"}
-
-print(frase) \hspace{3cm} \textcolor{green}{"ASAP mola"}
-
-print(frase[3])\hspace{2.7cm} \textcolor{green}{"P"}
-\end{Programexample}
-
-Entenderemos las frases como una lista de caracteres, por eso en el segundo ejemplo, intentamos acceder a la posición 3 de la cadena  \textcolor{orange}{"ASAP mola"}.
-\textbf{En programación las listas empiezan en la posición 0}.
-\end{frame}
-\begin{frame}{Tipos de datos: Booleanos}
-%añadir más info
-Este tipos de datos únicamente puede tomar dos valores: verdadero o falso. En general, todas las variables pueden considerarse como booleanas. Aquellos elementos nulos o vacíos adoptarán el valor de falso mientras que todos los demás serán verdaderos. Además, el número 1 actuará como verdadero y el 0 como falso.
-Este tipo de datos se utilizará más adelante como condición de control.
-
-\begin{Programexample}
-\centering ASAPExiste = true
-\end{Programexample}
-\end{frame}
-\begin{frame}{Tipos de datos: Listas}
-\label{datos:listas}
-Como hemos dicho antes, una lista es una cadena de cualquier tipo de datos. Pueden ser de un mismo tipo (números, strings, etc) o de varios.
-
-\begin{Programexample}{Trabajo con listas}
-info\_ASAP = \textcolor{orange}{["ASAP", "UCM", "Filología", 2018]}
-\newline\newline
-print("Información sobre la asociación",  info\_ASAP[0])\newline
-print("Pertenece a la facultad: ", info\_ASAP[2], info\_ASAP[1]) \newline
-print("Año de creacción: ", info\_ASAP[3])\newline
-print("Numero de datos que disponemos de ", info\_ASAP[0], ": ", len(info\_ASAP))
-\end{Programexample}
-\end{frame}
-\begin{frame}{Operaciones lógicas}
-Las operaciones lógicas son aquellas que nos permiten relacionar ciertos datos de una manera determinada y nos proporciona un resultado. Más adelante veremos que esto tendrá utilidad en las condiciones.\\
-Tanto estos datos como el resultado únicamente podrán ser de tipo booleano.\\
-Las operaciones lógicas más usadas son \textbf{AND} y \textbf{OR}.
-\begin{table}[]
-\begin{tabular}{|c|c|l|l|c|l|l|}
-\cline{1-3} \cline{5-7}
-\textbf{AND}   & \textbf{True}  & \textbf{False} &  & \textbf{OR}    & \textbf{True} & \textbf{False} \\ \cline{1-3} \cline{5-7} 
-\textbf{True}  & True  & False &  & \textbf{True}  & True & True  \\ \cline{1-3} \cline{5-7} 
-\textbf{False} & False & False &  & \textbf{False} & True & False \\ \cline{1-3} \cline{5-7} 
-\end{tabular}
-\end{table}
-\end{frame}
-\begin{frame}{Comparaciones}
-Al igual que las operaciones lógicas, las comparaciones también proporcionan un resultado booleano aunque, a diferencia de las operaciones lógicas, no es necesario que los datos tratados sean de tipo booleanos. También se les encontrará la utilidad más adelante, para las condiciones.\\
-Para comprobar si dos datos son iguales se utilizará == y para comprobar si son diferentes !=.
-\begin{Programexample} {Comparaciones}
-\centering
-\textit{x = 5}\\
-\textit{y = 3}\\
-print(True != (y == x))\\
-\textcolor{green}{"True"}
-\end{Programexample}
-
-\end{frame}
-
-\begin{frame}{Estructuras de control}
-Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones Booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
-%ver porqué no funciona el espaciado horizontal
-%explicar and or not antes de esto...
-\begin{Programexample} {Ejemplo del uso de if}
-socios = 300 \newline
-if socios > 500:\newline
-\hspace{3cm}print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
-elif socios > 250 \textcolor{blue}{and} socios <= 500:\newline
-\hspace{2cm}print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
-else:\newline
-\hspace{2cm}print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
-\end{Programexample}
-\end{frame}
-
-\begin{frame}{sdfgaweg}
-
-\end{frame}
-
-\begin{frame}[focus]
-Thanks for using \textbf{Focus}!
-\end{frame}
-
-\appendix
-\begin{frame}{References}
-\nocite{*}
-\bibliography{demo_bibliography}
-\bibliographystyle{plain}
-\end{frame}
-
-\begin{frame}{Backup frame}
-\usebeamercolor[fg]{normal text}
-This is a backup frame, useful to include additional material for questions from the audience.
-\vfill
-The package \texttt{appendixnumberbeamer} is used not to number appendix frames.
-\end{frame}
 \end{document}
