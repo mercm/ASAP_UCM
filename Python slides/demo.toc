@@ -1,3 +1,3 @@
 \beamer@sectionintoc {1}{Python}{6}{0}{1}
-\beamer@sectionintoc {2}{Estructuras}{13}{0}{2}
-\beamer@sectionintoc {3}{Ahorcado}{18}{0}{3}
+\beamer@sectionintoc {2}{Estructuras}{15}{0}{2}
+\beamer@sectionintoc {3}{Ahorcado}{20}{0}{3}

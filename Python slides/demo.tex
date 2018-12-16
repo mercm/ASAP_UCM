@@ -96,14 +96,14 @@ floating point
 \end{block}
 \begin{Programexample}{Prueba con datos de tipo int}
 \centering
-\textit{x = 2}
-\textit{y = 3}
-print(x + y)
+\textit{x = 2}\newline
+\textit{y = 3}\newline
+print(x + y) \newline
 \textcolor{green}{"5"}
 \end{Programexample}
 \begin{Programexample}{Prueba con datos de tipo float}
-\centering\textit{x = 2.56}
-print(type(x))
+\centering\textit{x = 2.56}\newline
+print(type(x)) \newline
 \textcolor{green}{"<class 'float'>"}
 \end{Programexample}
 \end{frame}
@@ -113,7 +113,8 @@ print(type(x))
 Este tipos de datos únicamente puede tomar dos valores: verdadero o falso. En general, todas las variables pueden considerarse como booleanas. Aquellos elementos nulos o vacíos adoptarán el valor de falso mientras que todos los demás serán verdaderos. Además, el número 1 actuará como verdadero y el 0 como falso.
 Este tipo de datos se utilizará más adelante como condición de control.
 \begin{Programexample}
-\centering ASAPExiste = true
+\centering 
+ASAPExiste = \textcolor{blue}{true}
 \end{Programexample}
 \end{frame}
 
@@ -149,7 +150,7 @@ Las operaciones lógicas más usadas son \textbf{and} y \textbf{or}.
 \begin{table}[]
 \begin{tabular}{|c|c|l|l|c|l|l|}
 \cline{1-3} \cline{5-7}
-\textbf{and}   & \textbf{True}  & \textbf{False} &  & \textbf{or}    & \textbf{True} & \textbf{False} \\ \cline{1-3} \cline{5-7} 
+\textcolor{blue}{\textbf{AND}}   & \textbf{True}  & \textbf{False} &  & \textcolor{blue}{\textbf{OR}}    & \textbf{True} & \textbf{False} \\ \cline{1-3} \cline{5-7} 
 \textbf{True}  & True  & False &  & \textbf{True}  & True & True  \\ \cline{1-3} \cline{5-7} 
 \textbf{False} & False & False &  & \textbf{False} & True & False \\ \cline{1-3} \cline{5-7} 
 \end{tabular}
@@ -163,45 +164,40 @@ Para comprobar si dos datos son iguales se utilizará == y para comprobar si son
 \centering
 \textit{x = 5}\\
 \textit{y = 3}\\
-print(True != (y == x))\\
-\textcolor{green}{"True"}
+print(y == x)\\
+\textcolor{green}{"False"}
 \end{Programexample}
 \end{frame}
 
 \section{Estructuras}
 
-\begin{frame}{Leyes de Moore}
-\label{moorelaw}
-Antes de comenzar con nuestros primeros programas, debemos conocer esta ley:
-\end{frame}
-
 \begin{frame}{Estructuras de control: If}
 Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
 %ver porqué no funciona el espaciado horizontal
 %explicar and or not antes de esto...
-\begin{Programexample} {Ejemplo del uso de if}
+\begin{Programexample} {Uso de if}
 socios = 300 \newline
 \textcolor{blue}{if} socios > 500:\newline
-\hspace{3cm} print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
+\hspace*{1cm} print(\textcolor{orange}{"ASAP tiene más de 500 socios, impresionante"})\newline
 \textcolor{blue}{elif} socios > 250 \textcolor{blue}{and} socios <= 500:\newline
-\hspace{2cm} print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
+\hspace*{1cm} print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
 \textcolor{blue}{else}:\newline
-\hspace{2cm} print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
+\hspace*{1cm} print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
 \end{Programexample}
 \end{frame}
 
 \begin{frame}{Bucles: While}
 Para ejecutar un código varias veces, y hacerlo de una forma limpia y ordenada, siempre vamos a tener que hacer uso de algún tipo de bucle.
-\begin{Programexample}{Ejemplo erroneo}
+\begin{Programexample}{Erroneo}
 print(\textcolor{orange}{"ASAP mola"}) \newline
 print(\textcolor{orange}{"ASAP mola"})
 \end{Programexample}
-\begin{Programexample}{Ejemplo uso de bucle while}
+\begin{Programexample}{Uso de bucle while}
 veces\_que\_lo\_he\_dicho = 0 \newline
 veces\_que\_quiero\_decirlo = 2 \newline
-\textcolor{blue}{while} veces\_que\_lo\_he\_dicho < veces\_que\_quiero\_decirlo:
-\hspace{2cm} print(\textcolor{orange}{"ASAP mola"}) \newline
-\hspace{2cm} veces\_que\_lo\_he\_dicho++
+\textcolor{blue}{while} veces\_que\_lo\_he\_dicho < veces\_que\_quiero\_decirlo: \newline
+\hspace*{1cm} print(\textcolor{orange}{"ASAP mola"}) \newline
+\hspace*{1cm} veces\_que\_lo\_he\_dicho++ %Latex quita los espacios al principio de la linea, por lo que el * lo fuerza.
 \end{Programexample}
 \end{frame}
 
@@ -209,31 +205,38 @@ veces\_que\_quiero\_decirlo = 2 \newline
 Otro tipo de bucles comunmente utilizados en programación son los bucles for, en este caso encontramos diferentes sintaxis que pueden cumplir la misma funcionalidad.
 \begin{Programexample}{Ejemplo uso de bucle for}
 veces\_que\_quiero\_decirlo = 2 \newline
-\textcolor{blue}{for} veces\_que\_lo\_he\_dicho \textcolor{blue}{in range}(veces\_que\_quiero\_decirlo): \newline
-\hspace{2cm} print(\textcolor{orange}{"ASAP mola"})
+\resizebox{\textwidth}{!}{\textcolor{blue}{for} veces\_que\_lo\_he\_dicho \textcolor{blue}{in range}(veces\_que\_quiero\_decirlo):} \newline
+\hspace*{1cm} print(\textcolor{orange}{"ASAP mola"})
 \end{Programexample}
+\end{frame}
+                    
+\begin{frame}{Bucles: For}
 \begin{Programexample}{Ejemplo uso de bucle for con listas}
 frutas = [\textcolor{orange}{"manzana", "platano", "naranja"}] \newline
 \textcolor{blue}{for} fruta \textcolor{blue}{in} frutas: \newline
-\textcolor{blue}{if} fruta \textcolor{blue}{is} "platano": \newline
-\hspace{2cm} print(\textcolor{orange}{"Gracias!"})
+\hspace*{1cm}\textcolor{blue}{if} fruta \textcolor{blue}{is} "platano": \newline
+\hspace*{2cm} print(\textcolor{orange}{"Gracias!"}) \newline
+\hspace*{1cm}\textcolor{blue}{else}: \newline
+\hspace*{2cm} print(\textcolor{orange}{"Ug no quiero", fruta, "gracias!"})
 \end{Programexample}
 \end{frame}
 
 \section{Ahorcado}
 
 \begin{frame}{Enunciado}
-content...
+En primer lugar introduciremos una palabra, la cual nuestro contrincante tendrá que adivinar. El programa leerá dicha palabra y la almacenará en una variable.
+A continuación pedirá al usuario letras mientras va comprobando si existen en nuestra palabra o no, con un máximo de 5 fallos.
+A cada letra que acierte el programa irá mostrando el estado del juego, las letras sin adivinar como "\_", y las letras adivinadas en su posición.
+\end{frame}
+
+\begin{frame}{Preguntas}
+\textbf{Paula Muñoz Lago}: pmunoz06@ucm.es \newline
+\textbf{Esther Ruiz-Capillas Muñoz}: mruizcap@ucm.es
 \end{frame}
 
 \begin{frame}[focus]
-Muchas gracias por la atención! \newline
-Esperamos que esta charla haya despertado vuestro interés por Python y que sigais trabajando en ello!!
-\end{frame}
-
-\begin{frame}[focus]
-Paula Muñoz Lago pmunoz06@ucm.es \newline
-Esther Ruiz-Capillas Muñoz mruizcap@ucm.es
+¡Muchas gracias por la atención! \newline
+Esperamos que esta charla despierte vuestro interés por Python y que sigais trabajando en ello
 \end{frame}
 
 \end{document}

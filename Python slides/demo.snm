@@ -1,5 +1,4 @@
 \beamer@slide {datos:numericos}{9}
-\beamer@slide {datos:strings}{10}
-\beamer@slide {datos:bool}{11}
+\beamer@slide {datos:booleanos}{10}
+\beamer@slide {datos:strings}{11}
 \beamer@slide {datos:listas}{12}
-\beamer@slide {moorelaw}{14}

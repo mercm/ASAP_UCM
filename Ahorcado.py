@@ -1,53 +1,49 @@
 import os
 
-os.system('cls')
+os.system('cls||clear')
 seleccion = 's'
 
 print("¡Bienvenido al ahorcado!")
 
 while seleccion == 's':
-    output = []
-    letras = []
-    intentos = 8
+    adivinadas = []
+    falladas = []
+    intentos = 5
     comprueba = ""
-    palabra = str(input("Inserta una palabra: "))
-    os.system('cls')
+    palabra = str(input("Inserta una palabra: ")).upper()
+    os.system('cls||clear')
 
-    for i in range(0, len(palabra)):
-        output.insert(i, "_")
+    for _ in range(len(palabra)):
+        adivinadas.append("_")
 
     print("¡Ya podemos empezar a jugar!")
     while intentos != 0 and comprueba != palabra:
 
-        print("\n", " ".join(output))
-        print("Letras intentadas: ", ", ".join(letras))
+        print("\n", " ".join(adivinadas))
+        print("Palabras intentadas: ", ", ".join(falladas))
         print("Intentos restantes: ", intentos, "\n\n")
-        letra = str(input("Escribe una letra: "))
+        letra = str(input("Escribe una letra: ")).upper()
         while len(letra) != 1:
-            letra = str(input("Escribe solo una letra: "))
+            letra = str(input("Escribe solo una letra: ")).upper()
 
-
-        if letra in palabra:
-            if letra not in output:
+        if letra not in adivinadas and letra not in falladas:
+            if letra in palabra:
                 print("¡Has acertado!")
-                for i in range(0, len(palabra)):
+                for i in range(len(palabra)):
                     if palabra[i] == letra:
-                        output[i] = letra
+                        adivinadas[i] = letra
             else:
-                print("Ya has adivinado esta letra")
-        else:
-            if letra not in letras:
                 print("¡Ops! Esa letra no está en la palabra")
-                letras.append(letra.lower())
+                falladas.append(letra.lower())
                 intentos = intentos - 1
-            else:
-                print("Ya has intentado poner esta letra")
+        else:
+            print("Ya has probado con esta letra")
         
-        comprueba = "".join(output)
+        comprueba = "".join(adivinadas)
 
     if comprueba == palabra:
-        print("¡Enhorabuena! Has adivinado la palabra. ¿Quieres volver a jugar?")
-        seleccion = str(input("Escribe s para empezar una partida nueva y cualquier otro caracter para terminar el juego: "))
-        while len(seleccion) != 1:
-            seleccion = str(input("Inserta solo un caracter: "))
+        print("¡Enhorabuena! Has adivinado la palabra", palabra, ". ¿Quieres volver a jugar?")
+    elif intentos == 0:
+        print("Te quedaste sin intentos, la respuesta era: ", palabra)
+    seleccion = input("Escribe s para empezar una partida nueva y cualquier otro caracter para terminar el juego: ")
 
