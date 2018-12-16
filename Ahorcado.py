@@ -8,7 +8,7 @@ print("¡Bienvenido al ahorcado!")
 while seleccion == 's':
     adivinadas = []
     falladas = []
-    intentos = 5
+    intentos = 6
     comprueba = ""
     palabra = str(input("Inserta una palabra: ")).upper()
     os.system('cls||clear')
@@ -34,7 +34,7 @@ while seleccion == 's':
                         adivinadas[i] = letra
             else:
                 print("¡Ops! Esa letra no está en la palabra")
-                falladas.append(letra.lower())
+                falladas.append(letra)
                 intentos = intentos - 1
         else:
             print("Ya has probado con esta letra")
