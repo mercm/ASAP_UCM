@@ -77,8 +77,26 @@ Ligero, de compilación rápida.
 Además, es uno de los lenguajes pricipales con los que se trabaja en el campo del \textbf{procesamiento del lenguaje natural}\footnote{\url{https://es.wikipedia.org/wiki/Procesamiento_de_lenguajes_naturales}}
 \end{frame}
 
+\begin{frame}{Interacción con el usuario: print}
+Lo más importante a la hora de programar es la comunicación con el usuario.\\
+Para poder imprimir mensajes usaremos \textbf{print()}. El texto que se quiera imprimir tendrá que estar escrito entrecomillado entre de los paréntesis.
+\begin{Programexample}{print}
+print(\textcolor{orange}{"Hola ASAP"}) \hspace{2cm}\textcolor{green}{"Hola ASAP"}\\
+print() \hspace{4.1cm}\textcolor{green}{"\textbackslash n"}
+\end{Programexample}
+\end{frame}
+
+\begin{frame}{Interacción con el usuario: input}
+Para poder recibir información desde la terminal usaremos \textbf{input()}. Podremos insertar texto dentro de los paréntesis (se mostrará como un print y recogerá la información de la terminal) o no (únicamente recogerá la información de la terminal).//
+Debido a que no queremos perder la información que recojamos, la guardaremos en una variable.
+\begin{Programexample}{input}
+asociación = input(\textcolor{orange}{"¿Cuál es el nombre de tu asociación?: "})\\
+asociación = input()
+\end{Programexample}
+Ambos ejemplos son válidos pero siempre se debe orientar al usuario sobre qué información introducir.
+\end{frame}
+
 \begin{frame}{Tipos de Datos}
-%Deberíamos añadir los booleanos y, probablemente, ponerlos delante de los string para que pueda ser más sencillo referencias a su información desde el apartado de listas
 En programación, siempre tenemos que guardar datos en algún punto de nuestro programa. Para ello, debemos conocer bien los diferentes tipos de datos con los que nos podemos encontrar. En esta introducción veremos los tipos más comunes:
 \vspace{1cm}
 
@@ -96,14 +114,14 @@ floating point
 \end{block}
 \begin{Programexample}{Prueba con datos de tipo int}
 \centering
-\textit{x = 2}\newline
-\textit{y = 3}\newline
-print(x + y) \newline
+\textit{x = 2}\\
+\textit{y = 3}\\
+print(x + y)\\
 \textcolor{green}{"5"}
 \end{Programexample}
 \begin{Programexample}{Prueba con datos de tipo float}
-\centering\textit{x = 2.56}\newline
-print(type(x)) \newline
+\centering\textit{x = 2.56}\\
+print(type(x)) \\
 \textcolor{green}{"<class 'float'>"}
 \end{Programexample}
 \end{frame}
@@ -143,6 +161,17 @@ print("Numero de datos que disponemos de ", info\_ASAP[0], ": ", len(info\_ASAP)
 \end{Programexample}
 \end{frame}
 
+\begin{frame}{Tipos de datos: Listas}
+Una vez creada una lista se le podrán añadir nuevos elementos con \textbf{.append()}\\
+Si queremos mostrar los elementos de la lista podremos usar \textbf{print(nombre\_de\_la\_lista)}. En cambio, si lo que queremos es mostrar el contenido de la lista como un único string separado por espacios podremos usar \textbf{print(" ".join(nombre\_de\_la\_lista))}
+\begin{Programexample}{Addición e impresión}
+info\_ASAP = \textcolor{orange}{["ASAP", "UCM", "Filología", 2018]}\\\\
+print(info\_ASAP) \hspace{1.85cm} \textcolor{green}{"[ASAP, UCM, Filología, 2018]"}\\
+info\_ASAP.append(\textcolor{orange}{"Mola"})\\
+print(\textcolor{orange}{" "}.join(infor\_ASAP)) \hspace{0.4cm} \textcolor{green}{"ASAP UCM Filología 2018 Mola"}\\
+\end{Programexample}
+\end{frame}
+
 \begin{frame}{Operaciones lógicas}
 Las operaciones lógicas son aquellas que nos permiten relacionar ciertos datos de una manera determinada y nos proporciona un resultado. Más adelante veremos que esto tendrá utilidad en las condiciones.\\
 Tanto estos datos como el resultado únicamente podrán ser de tipo booleano.\\
@@ -172,9 +201,17 @@ print(y == x)\\
 \section{Estructuras}
 
 \begin{frame}{Estructuras de control: If}
-Todo programa informático necesita tomar decisiones, por lo que gracias a las condiciones booleanas y a los bloques "if", dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código u otro.
+Todo programa informático necesita tomar decisiones por lo que, gracias a las condiciones booleanas y a los bloques \textbf{if}, dotaremos a nuestro programa de la posibilidad de ejecutar un fragmento de código en caso de que una condición se cumpla.
 %ver porqué no funciona el espaciado horizontal
-%explicar and or not antes de esto...
+\begin{Programexample} {Uso de if}
+socios = 300 \newline
+\textcolor{blue}{if} socios == 300:\newline
+\hspace*{1cm} print(\textcolor{orange}{"ASAP tiene 300 socios, impresionante"})
+\end{Programexample}
+\end{frame}
+
+\begin{frame}{Estructuras de control: else, elsif}
+¿Y si el fragmento de código que queremos ejecutar depende del caso en el que nos encontremos? Podremos usar las cláusulas \textbf{elseif} (si se van a contemplar más casos después) o \textbf{else} (si no se cumple ninguno de los casos anteriores).
 \begin{Programexample} {Uso de if}
 socios = 300 \newline
 \textcolor{blue}{if} socios > 500:\newline
@@ -182,7 +219,7 @@ socios = 300 \newline
 \textcolor{blue}{elif} socios > 250 \textcolor{blue}{and} socios <= 500:\newline
 \hspace*{1cm} print(\textcolor{orange}{"ASAP tiene entre 251 y 500 socios!"})\newline
 \textcolor{blue}{else}:\newline
-\hspace*{1cm} print(\textcolor{orange}{"ASAP tiene "},socios, \textcolor{orange}{"socios"})
+\hspace*{1cm} print(\textcolor{orange}{"ASAP tiene "}, socios,  \textcolor{orange}{" socios"})
 \end{Programexample}
 \end{frame}
 
@@ -202,22 +239,27 @@ veces\_que\_quiero\_decirlo = 2 \newline
 \end{frame}
 
 \begin{frame}{Bucles: For}
-Otro tipo de bucles comunmente utilizados en programación son los bucles for, en este caso encontramos diferentes sintaxis que pueden cumplir la misma funcionalidad.
-\begin{Programexample}{Ejemplo uso de bucle for}
+Otro tipo de bucles comúnmente utilizados en programación son los bucles \textbf{for}. En este caso encontramos diferentes sintaxis que pueden cumplir la misma funcionalidad.
+\begin{Programexample}{Uso de bucle for}
 veces\_que\_quiero\_decirlo = 2 \newline
 \resizebox{\textwidth}{!}{\textcolor{blue}{for} veces\_que\_lo\_he\_dicho \textcolor{blue}{in range}(veces\_que\_quiero\_decirlo):} \newline
 \hspace*{1cm} print(\textcolor{orange}{"ASAP mola"})
 \end{Programexample}
 \end{frame}
-                    
+
 \begin{frame}{Bucles: For}
-\begin{Programexample}{Ejemplo uso de bucle for con listas}
+\begin{Programexample}{Uso de bucle for con listas}
 frutas = [\textcolor{orange}{"manzana", "platano", "naranja"}] \newline
 \textcolor{blue}{for} fruta \textcolor{blue}{in} frutas: \newline
 \hspace*{1cm}\textcolor{blue}{if} fruta \textcolor{blue}{is} "platano": \newline
-\hspace*{2cm} print(\textcolor{orange}{"Gracias!"}) \newline
+\hspace*{2cm} print(\textcolor{orange}{"¡Gracias!"}) \newline
 \hspace*{1cm}\textcolor{blue}{else}: \newline
-\hspace*{2cm} print(\textcolor{orange}{"Ug no quiero", fruta, "gracias!"})
+\hspace*{2cm} print(\textcolor{orange}{"Ug no quiero ", fruta, " gracias!"})
+\end{Programexample}
+También se puede usar el número de elementos de una lista como valor máximo para el bucle con \textbf{len(nombre\_de\_la\_lista)}
+\begin{Programexample}{Uso de len()}
+\textcolor{blue}{for} i \textcolor{blue}{in range}(len(frutas)): \newline
+\hspace*{1cm} frutas[i] = pera
 \end{Programexample}
 \end{frame}
 
@@ -225,8 +267,8 @@ frutas = [\textcolor{orange}{"manzana", "platano", "naranja"}] \newline
 
 \begin{frame}{Enunciado}
 En primer lugar introduciremos una palabra, la cual nuestro contrincante tendrá que adivinar. El programa leerá dicha palabra y la almacenará en una variable.
-A continuación pedirá al usuario letras mientras va comprobando si existen en nuestra palabra o no, con un máximo de 5 fallos.
-A cada letra que acierte el programa irá mostrando el estado del juego, las letras sin adivinar como "\_", y las letras adivinadas en su posición.
+A continuación pedirá al usuario letras mientras va comprobando si existen en nuestra palabra o no, con un máximo de 6 fallos.
+Con cada letra que acierte el programa irá mostrando el estado del juego, las letras sin adivinar como "\_" y las letras adivinadas en su posición.
 \end{frame}
 
 \begin{frame}{Preguntas}
@@ -236,7 +278,7 @@ A cada letra que acierte el programa irá mostrando el estado del juego, las let
 
 \begin{frame}[focus]
 ¡Muchas gracias por la atención! \newline
-Esperamos que esta charla despierte vuestro interés por Python y que sigais trabajando en ello
+Esperamos que esta charla despierte vuestro interés por Python y que sigáis trabajando en ello.
 \end{frame}
 
 \end{document}
