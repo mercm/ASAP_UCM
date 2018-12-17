@@ -87,7 +87,7 @@ print() \hspace{4.1cm}\textcolor{green}{"\textbackslash n"}
 \end{frame}
 
 \begin{frame}{Interacción con el usuario: input}
-Para poder recibir información desde la terminal usaremos \textbf{input()}. Podremos insertar texto dentro de los paréntesis (se mostrará como un print y recogerá la información de la terminal) o no (únicamente recogerá la información de la terminal).
+Para poder recibir información desde la terminal usaremos \textbf{input()}. Podremos insertar texto dentro de los paréntesis (se mostrará como un print y recogerá la información de la terminal) o no (únicamente recogerá la información de la terminal).//
 Debido a que no queremos perder la información que recojamos, la guardaremos en una variable.
 \begin{Programexample}{input}
 asociación = input(\textcolor{orange}{"¿Cuál es el nombre de tu asociación?: "})\\
@@ -100,7 +100,7 @@ Ambos ejemplos son válidos pero siempre se debe orientar al usuario sobre qué 
 En programación, siempre tenemos que guardar datos en algún punto de nuestro programa. Para ello, debemos conocer bien los diferentes tipos de datos con los que nos podemos encontrar. En esta introducción veremos los tipos más comunes:
 \vspace{1cm}
 
-\centering\hyperlink{datos:numericos}{\textbf{Numericos}}
+\centering\hyperlink{datos:numericos}{\textbf{Numéricos}}
 \hspace{1cm} \hyperlink{datos:booleanos}{\textbf{Booleanos}}
 \hspace{1cm} \hyperlink{datos:strings}{\textbf{Strings}}
 \hspace{1cm} \hyperlink{datos:listas}{\textbf{Listas}}
@@ -154,10 +154,10 @@ Como hemos dicho antes, una lista es una cadena de cualquier tipo de datos. Pued
 \begin{Programexample}{Trabajo con listas}
 info\_ASAP = \textcolor{orange}{["ASAP", "UCM", "Filología", 2018]}
 \newline\newline
-print("Información sobre la asociación",  info\_ASAP[0])\newline
-print("Pertenece a la facultad: ", info\_ASAP[2], info\_ASAP[1]) \newline
-print("Año de creacción: ", info\_ASAP[3])\newline
-print("Numero de datos que disponemos de ", info\_ASAP[0], ": ", len(info\_ASAP))
+print(\textcolor{orange}{"Información sobre la asociación"},  info\_ASAP[0])\newline
+print(\textcolor{orange}{"Pertenece a la facultad: "}, info\_ASAP[2], info\_ASAP[1]) \newline
+print(\textcolor{orange}{"Año de creacción: "}, info\_ASAP[3])\newline
+print(\textcolor{orange}{"Numero de datos que disponemos de "}, info\_ASAP[0], ": ", len(info\_ASAP))
 \end{Programexample}
 \end{frame}
 
@@ -210,8 +210,8 @@ socios = 300 \newline
 \end{Programexample}
 \end{frame}
 
-\begin{frame}{Estructuras de control: else, elsif}
-¿Y si el fragmento de código que queremos ejecutar depende del caso en el que nos encontremos? Podremos usar las cláusulas \textbf{elseif} (si se van a contemplar más casos después) o \textbf{else} (si no se cumple ninguno de los casos anteriores).
+\begin{frame}{Estructuras de control: else, elif}
+¿Y si el fragmento de código que queremos ejecutar depende del caso en el que nos encontremos? Podremos usar las cláusulas \textbf{elif} (si se van a contemplar más casos después) o \textbf{else} (si no se cumple ninguno de los casos anteriores).
 \begin{Programexample} {Uso de if}
 socios = 300 \newline
 \textcolor{blue}{if} socios > 500:\newline
@@ -234,7 +234,7 @@ veces\_que\_lo\_he\_dicho = 0 \newline
 veces\_que\_quiero\_decirlo = 2 \newline
 \textcolor{blue}{while} veces\_que\_lo\_he\_dicho < veces\_que\_quiero\_decirlo: \newline
 \hspace*{1cm} print(\textcolor{orange}{"ASAP mola"}) \newline
-\hspace*{1cm} veces\_que\_lo\_he\_dicho++ %Latex quita los espacios al principio de la linea, por lo que el * lo fuerza.
+\hspace*{1cm} veces\_que\_lo\_he\_dicho += 1 %Latex quita los espacios al principio de la linea, por lo que el * lo fuerza.
 \end{Programexample}
 \end{frame}
 
