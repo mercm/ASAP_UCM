@@ -10,6 +10,7 @@ while seleccion == 's':
     falladas = []
     intentos = 6
     comprueba = ""
+
     palabra = str(input("Inserta una palabra: ")).upper()
     os.system('cls||clear')
 
@@ -41,6 +42,7 @@ while seleccion == 's':
         
         comprueba = "".join(adivinadas)
 
+    print("\n", " ".join(adivinadas))
     if comprueba == palabra:
         print("¡Enhorabuena! Has adivinado la palabra", palabra, ". ¿Quieres volver a jugar?")
     elif intentos == 0:
